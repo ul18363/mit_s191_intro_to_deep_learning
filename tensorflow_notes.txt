@@ -1,0 +1,36 @@
+#To be able to use GPU's Pytorch Torchvision and CUDA need to be installed 
+(cudatoolkit seems to be a dependency of pytorch so installing pytorch already 
+bring it in) and should be compatible with each other
+
+conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+
+# Pytorch:
+Pytorch is a  machine learning library developed by Facebooks AI Research lab 
+(FAIR).
+
+Try this to see if GPU is available:
+import tensorflow as tf
+tf.config.list_physical_devices()
+
+or
+
+from tensorflow.python.client import device_lib
+local_device_protos = device_lib.list_local_devices()
+local_device_protos
+
+# Still problems? Check this out
+https://medium.com/lsc-psd/tensorflow-2-1-doesnt-seem-to-see-my-gpu-even-though-cuda-10-1-with-solution-7b44297843a
+
+conda install tensorflow=2.1
+Tensorflow should be build with CUDA 10.1 and cuDNN 7.6
+nvcc -V # If nvcc is not recognized use sudo apt install nvidia-cuda-toolkit
+
+
+# 1. Cause 1: CuDNN build installed in Anaconda doesn’t support.
+conda install cudnn=7.6.5=cuda10.1_0
+
+# 2. Cause 2: tensorflow’s build is bad.
+In Anaconda, there are three types of tensorflow’s builds: eigen, gpu, and mkl.
+I tried to install another build.
+
+conda install tensorflow=2.1.0=gpu_py37h7db9008_0
