@@ -3,6 +3,11 @@ A repository to hold same basic guidances on how to set up my working environmen
 # Needed packages in the system
 sudo apt-get install -y abcmidi  # Converts abc files into MIDI
 sudo apt-get install -y timidity # Sound renderer to play MIDI files
+
+# Audio Widgets are only supported in Notebooks.
+Whilst the sypder console is easier to use when it comes to examine variables the only way to create widgets (for example to play sounds) is
+within Jupyter notebooks.
+
 # How to install a specific python version (Example with python3.8)
 1. Update system: sudo apt-get update
 2. Install desired python version: sudo apt-get install python3.8
